@@ -13,13 +13,19 @@ app.use(express.bodyParser())
 app.use(express.cookieParser())
 app.use(app.router)
 
-app.get('/deposit', (req, res) ->
-  res.render('main/deposit', 
+app.get('/register', (req, res) ->
+  res.render('register', 
     js: (-> global.js), 
     css: (-> global.css)
   )
 )
 
+app.get('/deposit', (req, res) ->
+  res.render('deposit', 
+    js: (-> global.js), 
+    css: (-> global.css)
+  )
+)
 
 app.get('/issue/:amount', (req, res) ->
   exec = require('child_process').exec
