@@ -13,6 +13,14 @@ app.use(express.bodyParser())
 app.use(express.cookieParser())
 app.use(app.router)
 
+
+app.get('/', (req, res) ->
+  res.render('index', 
+    js: (-> global.js), 
+    css: (-> global.css)
+  )
+)
+
 app.get('/register', (req, res) ->
   res.render('register', 
     js: (-> global.js), 
