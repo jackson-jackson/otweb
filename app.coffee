@@ -13,7 +13,6 @@ app.use(express.bodyParser())
 app.use(express.cookieParser())
 app.use(app.router)
 
-
 app.get('/', (req, res) ->
   res.render('index', 
     js: (-> global.js), 
@@ -25,6 +24,15 @@ app.get('/register', (req, res) ->
   res.render('register', 
     js: (-> global.js), 
     css: (-> global.css)
+  )
+)
+
+app.post('/register', (req, res) ->
+  exec = require('child_process').exec
+
+  exec("opentxs newnym", (err, out, stderr) ->
+    res.write(out)
+    res.end()
   )
 )
 

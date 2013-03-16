@@ -6,6 +6,7 @@
     <title>Open Transactions</title>
     <link href="img/favicon.ico" rel="shortcut icon" />
     {{#css}}index{{/css}}
+    {{#js}}index{{/js}}
   </head>
   <body>
     <div class="container-fluid">
@@ -14,6 +15,41 @@
       <a href="/redeem">Redeem</a>
       <a href="/deposit">Deposit</a>
       <p>Open Transactions is...</p>
+
+      <h2>Choose a server</h2>
+      <div class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label">Server:</label>
+          <div class="controls">
+            <select id="server" name="server">
+              <option selected="selected">VanBTC (vanbtc.ca)</option>
+              <option>Galactic Milieu (...)</option>
+              <option>Mycelial Communications (...)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <h3>Or...</h3>
+      <h2>Enter server information</h2>
+      <div class="form-horizontal">
+          <div class="control-group">
+              <label class="control-label">URL:</label>
+              <div class="controls">
+                  <input name="url" size="30" type="text" />
+              </div>
+            </div>
+
+          <div class="control-group">
+              <label class="control-label">Port:</label>
+              <div class="controls">
+                  <input name="port" size="30" type="text" />
+              </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" id="continue">Continue</button>
+          </div>
+      </div>
     </div>
   </body>
 </html>
