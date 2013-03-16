@@ -35,6 +35,13 @@ app.get('/deposit', (req, res) ->
   )
 )
 
+app.get('/redeem', (req, res) ->
+  res.render('redeem', 
+    js: (-> global.js), 
+    css: (-> global.css)
+  )
+)
+
 app.get('/issue/:amount', (req, res) ->
   exec = require('child_process').exec
 

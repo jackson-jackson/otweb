@@ -10,13 +10,16 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1>Deposit Bitcoin</h1>
+      <h1>Redeem DigiBTC</h1>
       <br>
-      Send bitcoins to: 1VAnbtCAnYccECnjaMCPnWwt81EHCVgNr
-
-      <p id="received" style="white-space: pre-line">
-        <canvas id="qrcanv">No Canvas Support</canvas>
-      </p>
+      <form action="/redeem" method="post">
+        <label for="cash">Paste asset: </label>
+        <textarea name="cash"></textarea>
+      </form>
     </div>
+    
+          <div class="form-actions">
+              <button class="btn btn-primary" id="new-wallet-continue">Continue</button>
+          </div>
   </body>
 </html>

@@ -10,22 +10,29 @@
   <body>
     <div class="container-fluid">
       <h1>Register Nym</h1>
-
+      <br>
       <div class="form-horizontal">
           <div class="control-group">
-              <label class="control-label">Nym:</label>
+              <label class="control-label">Username:</label>
               <div class="controls">
-                  <input id="alias-value" disabled="disabled" placeholder="18yvg1b29hediub1298dgdv1v7d87" name="alias" size="30" type="text" />
+                  <input name="username" size="30" type="text" />
               </div>
             </div>
 
           <div class="control-group">
-              <label class="control-label">Label:</label>
+              <label class="control-label">Password:</label>
               <div class="controls">
-                  <input id="alias-value" name="alias" size="30" type="text" />
+                  <input name="password" size="30" type="password" />
               </div>
           </div>
 
+          <div class="control-group">
+              <label class="control-label">Confirm Password:</label>
+              <div class="controls">
+                  <input name="confirm" size="30" type="password" />
+              </div>
+            
+          </div>
           <div class="form-actions">
               <button class="btn btn-primary" id="new-wallet-continue">Continue</button>
           </div>
