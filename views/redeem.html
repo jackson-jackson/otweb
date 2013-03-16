@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-		<meta name="viewport" content="width=480, height=752, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <title>Bitcoin Payment Calculator</title>
-    <link href="img/favicon.ico" rel="shortcut icon" />
-    {{#css}}index{{/css}}
-    {{#js}}deposit{{/js}}
-  </head>
-  <body>
-    <div class="container-fluid">
-      <h1>Redeem DigiBTC</h1>
-      <br>
-      <form action="/redeem" method="post">
-        <label for="cash">Paste asset: </label>
-        <textarea name="cash"></textarea>
-      </form>
-    </div>
-    
-          <div class="form-actions">
-              <button class="btn btn-primary" id="new-wallet-continue">Continue</button>
-          </div>
-  </body>
-</html>
+<div class="container-fluid">
+  <h1>Redeem DigiBTC</h1>
+  <br>
+  <form action="/redeem" method="post">
+    <label for="cash">Paste asset: </label>
+    <textarea name="cash"></textarea>
+  </form>
+</div>
+
+<div class="form-actions">
+    <button class="btn btn-primary" id="new-wallet-continue">Continue</button>
+</div>

@@ -16,14 +16,16 @@ app.use(app.router)
 app.get('/', (req, res) ->
   res.render('index', 
     js: (-> global.js), 
-    css: (-> global.css)
+    css: (-> global.css),
+    layout: "layout"
   )
 )
 
 app.get('/register', (req, res) ->
   res.render('register', 
     js: (-> global.js), 
-    css: (-> global.css)
+    css: (-> global.css),
+    layout:"layout"
   )
 )
 
@@ -38,15 +40,17 @@ app.post('/register', (req, res) ->
 
 app.get('/deposit', (req, res) ->
   res.render('deposit', 
-    js: (-> global.js), 
-    css: (-> global.css)
+    js: (-> global.js),
+    css: (-> global.css),
+    layout:"depositlayout"
   )
 )
 
 app.get('/redeem', (req, res) ->
   res.render('redeem', 
     js: (-> global.js), 
-    css: (-> global.css)
+    css: (-> global.css),
+    layout:"layout"
   )
 )
 

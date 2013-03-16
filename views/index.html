@@ -1,72 +1,42 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-		<meta name="viewport" content="width=480, height=752, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <title>Open Transactions</title>
-    <link href="img/favicon.ico" rel="shortcut icon" />
-    {{#css}}index{{/css}}
-    {{#js}}index{{/js}}
-  </head>
-  <body>
-    <div class="navbar navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="/">Open Transactions Web</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Buy: <b id="bid"></b> | Sell: <b id="ask"></b>
-            </p>
-            <ul class="nav">
-              <li><a href="/register">Register</a></li>
-              <li><a href="/redeem">Redeem</a></li>
-              <li><a href="/deposit">Deposit</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+<div class="container-fluid">
+  <div class="span-4">
+    <h2>Choose a server</h2>
+    <div class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label">Server:</label>
+        <div class="controls">
+          <select id="server" name="server">
+            <option selected="selected">VanBTC (vanbtc.ca)</option>
+            <option>Galactic Milieu (...)</option>
+            <option>Mycelial Communications (...)</option>
+          </select>
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="span-4">
-        <h2>Choose a server</h2>
-        <div class="form-horizontal">
-          <div class="control-group">
-            <label class="control-label">Server:</label>
-            <div class="controls">
-              <select id="server" name="server">
-                <option selected="selected">VanBTC (vanbtc.ca)</option>
-                <option>Galactic Milieu (...)</option>
-                <option>Mycelial Communications (...)</option>
-              </select>
-            </div>
-          </div>
+  </div>
+
+  <div class="span-4">
+    <h2>New Server</h2>
+    <div class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label">URL:</label>
+        <div class="controls">
+            <input name="url" size="30" type="text" />
         </div>
       </div>
 
-      <div class="span-4">
-        <h2>New Server</h2>
-        <div class="form-horizontal">
-          <div class="control-group">
-            <label class="control-label">URL:</label>
-            <div class="controls">
-                <input name="url" size="30" type="text" />
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label">Port:</label>
-            <div class="controls">
-              <input name="port" size="30" type="text" />
-            </div>
-          </div>
+      <div class="control-group">
+        <label class="control-label">Port:</label>
+        <div class="controls">
+          <input name="port" size="30" type="text" />
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="form-horizontal">Login</div>
+<div class="form-horizontal">Login</div>
 
-    <div class="form-actions">
-      <button class="btn btn-primary" id="continue">Continue</button>
-    </div>
-  </body>
-</html>
+<div class="form-actions">
+  <button class="btn btn-primary" id="continue">Continue</button>
+</div>
