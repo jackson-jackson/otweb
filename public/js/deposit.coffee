@@ -9,6 +9,7 @@ ADDRESS_FAIL = "Invalid address"
 g = exports ? this
 
 $(->
+  $('body').prepend('You are connected to:' + localStorage.getItem('server'))
   g.address or= '1VAnbtCAnYccECnjaMCPnWwt81EHCVgNr'
   setupSocket()
   setupQR()
