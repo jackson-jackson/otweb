@@ -21,6 +21,8 @@ app.get('/', (req, res) ->
   )
 )
 
+### ADVANCED UTILITIES ###
+
 app.get('/register', (req, res) ->
   res.render('register', 
     js: (-> global.js), 
@@ -29,6 +31,49 @@ app.get('/register', (req, res) ->
   )
 )
 
+### THE USER WALLET ###
+
+app.get('/addasset', (req, res) ->
+  res.render('addasset', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/changepw', (req, res) ->
+  res.render('changepw', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/editacct', (req, res) ->
+  res.render('editacct', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/editasset', (req, res) ->
+  res.render('editasset', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/showpurse', (req, res) ->
+  res.render('showpurse', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+### is this needed anymore?
 app.post('/register', (req, res) ->
   exec = require('child_process').exec
 
@@ -37,6 +82,9 @@ app.post('/register', (req, res) ->
     res.end()
   )
 )
+###
+
+### ASSET ACCOUNTS ###
 
 app.get('/deposit', (req, res) ->
   res.render('deposit', 
@@ -54,6 +102,7 @@ app.get('/redeem', (req, res) ->
   )
 )
 
+### is this needed anymore?
 app.get('/issue/:amount', (req, res) ->
   exec = require('child_process').exec
 
@@ -68,5 +117,6 @@ app.use((err, req, res, next) ->
   console.log(err)
   res.end()
 )
+###
 
 app.listen(3000)
