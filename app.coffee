@@ -21,15 +21,7 @@ app.get('/', (req, res) ->
   )
 )
 
-### ADVANCED UTILITIES ###
-
-app.get('/register', (req, res) ->
-  res.render('register', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
+### ADVANCED UTILITIES: ###
 
 app.get('/issueasset', (req, res) ->
   res.render('issueasset', 
@@ -39,7 +31,23 @@ app.get('/issueasset', (req, res) ->
   )
 )
 
-### THE USER WALLET ###
+app.get('/newasset', (req, res) ->
+  res.render('newasset', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/register', (req, res) ->
+  res.render('register', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+### THE USER WALLET: ###
 
 app.get('/addasset', (req, res) ->
   res.render('addasset', 
@@ -148,13 +156,21 @@ app.post('/register', (req, res) ->
 )
 ###
 
-### ASSET ACCOUNTS ###
+### ASSET ACCOUNTS: ###
 
 app.get('/deposit', (req, res) ->
   res.render('deposit', 
     js: (-> global.js),
     css: (-> global.css),
     layout:"depositlayout"
+  )
+)
+
+app.get('/newacct', (req, res) ->
+  res.render('newacct', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
   )
 )
 
@@ -165,6 +181,17 @@ app.get('/redeem', (req, res) ->
     layout:"layout"
   )
 )
+
+app.get('/transfer', (req, res) ->
+  res.render('transfer', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+### DEALING WITH OTHER USERS: ###
+
 
 ### is this needed anymore?
 app.get('/issue/:amount', (req, res) ->
