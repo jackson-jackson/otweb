@@ -65,6 +65,14 @@ app.get('/editasset', (req, res) ->
   )
 )
 
+app.get('/editnym', (req, res) ->
+  res.render('editnym', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
 app.get('/showpurse', (req, res) ->
   res.render('showpurse', 
     js: (-> global.js), 
