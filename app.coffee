@@ -31,6 +31,14 @@ app.get('/register', (req, res) ->
   )
 )
 
+app.get('/issueasset', (req, res) ->
+  res.render('issueasset', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
 ### THE USER WALLET ###
 
 app.get('/addasset', (req, res) ->
