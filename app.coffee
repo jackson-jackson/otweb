@@ -73,6 +73,54 @@ app.get('/editnym', (req, res) ->
   )
 )
 
+app.get('/editserver', (req, res) ->
+  res.render('editserver', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/exportcert', (req, res) ->
+  res.render('exportcert', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/exportnym', (req, res) ->
+  res.render('exportnym', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/importcert', (req, res) ->
+  res.render('importcert', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/importnym', (req, res) ->
+  res.render('importnym', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
+app.get('/newnym', (req, res) ->
+  res.render('newnym', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
 app.get('/showpurse', (req, res) ->
   res.render('showpurse', 
     js: (-> global.js), 
