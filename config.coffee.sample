@@ -1,0 +1,4 @@
+# rename this file to config.coffee
+
+exports.server =
+  port: 3001

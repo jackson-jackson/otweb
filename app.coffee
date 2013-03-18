@@ -1,3 +1,4 @@
+config = require('./config')
 express = require('express')
 path = require('path')
 engines = require('consolidate')
@@ -210,4 +211,4 @@ app.use((err, req, res, next) ->
 )
 ###
 
-app.listen(3000)
+app.listen(config.server.port)
