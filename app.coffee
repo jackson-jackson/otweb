@@ -58,6 +58,14 @@ app.get('/addasset', (req, res) ->
   )
 )
 
+app.get('/wallet', (req, res) ->
+  res.render('wallet', 
+    js: (-> global.js), 
+    css: (-> global.css),
+    layout:"layout"
+  )
+)
+
 app.get('/changepw', (req, res) ->
   res.render('changepw', 
     js: (-> global.js), 
