@@ -146,16 +146,14 @@ app.get('/showpurse', (req, res) ->
   )
 )
 
-### is this needed anymore?
 app.post('/register', (req, res) ->
   exec = require('child_process').exec
 
-  exec("opentxs newnym", (err, out, stderr) ->
+  exec("opentxs newnym --args \"name #{req.body.username}\"" , (err, out, stderr) ->
     res.write(out)
     res.end()
   )
 )
-###
 
 ### ASSET ACCOUNTS: ###
 
