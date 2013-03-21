@@ -3,6 +3,9 @@ express = require('express')
 path = require('path')
 engines = require('consolidate')
 
+RedisStore = require('connect-redis')(express)
+sessionStore = new RedisStore(ttl: 172800)
+
 app = express()
 app.enable('trust proxy')
 app.engine('html', require('mmm').__express)
@@ -12,6 +15,7 @@ app.use(express.static(__dirname + '/public'))
 app.use(require('connect-assets')(src: 'public'))
 app.use(express.bodyParser())
 app.use(express.cookieParser())
+app.use(express.session(secret: 'weareallmadeofstars', store: sessionStore, key: 'otweb.sid'))
 app.use(app.router)
 
 app.get('/', (req, res) ->
@@ -58,8 +62,10 @@ app.get('/addasset', (req, res) ->
   )
 )
 
-app.get('/wallet', (req, res) ->
+app.get('/wallet/:username', (req, res) ->
   res.render('wallet', 
+    username: req.params.username,
+    nym: req.session.nym,
     js: (-> global.js), 
     css: (-> global.css),
     layout:"layout"
@@ -158,8 +164,8 @@ app.post('/register', (req, res) ->
   exec = require('child_process').exec
 
   exec("opentxs newnym --args \"name #{req.body.username}\"" , (err, out, stderr) ->
-    res.write(out)
-    res.end()
+    req.session.nym = out
+    res.redirect("/wallet/#{req.body.username}")
   )
 )
 
