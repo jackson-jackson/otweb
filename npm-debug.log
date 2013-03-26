@@ -1,0 +1,56 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'coffeescript' ]
+2 info using npm@1.2.11
+3 info using node@v0.8.21
+4 verbose read json /Users/jacksonwarren/projects/otweb/package.json
+5 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/coffee-script/package.json
+6 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/connect-assets/package.json
+7 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/connect-redis/package.json
+8 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/consolidate/package.json
+9 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/express/package.json
+10 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/hogan.js/package.json
+11 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/less/package.json
+12 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/mmm/package.json
+13 verbose read json /Users/jacksonwarren/projects/otweb/node_modules/redis/package.json
+14 verbose from cache /Users/jacksonwarren/projects/otweb/package.json
+15 verbose readDependencies using package.json deps
+16 verbose cache add [ 'coffeescript', null ]
+17 verbose cache add name=undefined spec="coffeescript" args=["coffeescript",null]
+18 verbose parsed url { pathname: 'coffeescript',
+18 verbose parsed url   path: 'coffeescript',
+18 verbose parsed url   href: 'coffeescript' }
+19 silly lockFile f5fbc02e-coffeescript coffeescript
+20 verbose lock coffeescript /Users/jacksonwarren/.npm/f5fbc02e-coffeescript.lock
+21 silly lockFile f5fbc02e-coffeescript coffeescript
+22 silly lockFile f5fbc02e-coffeescript coffeescript
+23 verbose addNamed [ 'coffeescript', '' ]
+24 verbose addNamed [ null, '' ]
+25 silly lockFile 62a8d146-coffeescript coffeescript@
+26 verbose lock coffeescript@ /Users/jacksonwarren/.npm/62a8d146-coffeescript.lock
+27 silly addNameRange { name: 'coffeescript', range: '', hasData: false }
+28 verbose url raw coffeescript
+29 verbose url resolving [ 'https://registry.npmjs.org/', './coffeescript' ]
+30 verbose url resolved https://registry.npmjs.org/coffeescript
+31 info trying registry request attempt 1 at 20:01:59
+32 http GET https://registry.npmjs.org/coffeescript
+33 http 404 https://registry.npmjs.org/coffeescript
+34 silly registry.get cb [ 404,
+34 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B03)',
+34 silly registry.get     date: 'Sun, 24 Mar 2013 03:02:01 GMT',
+34 silly registry.get     'content-type': 'application/json',
+34 silly registry.get     'content-length': '52',
+34 silly registry.get     'cache-control': 'must-revalidate' } ]
+35 silly lockFile 62a8d146-coffeescript coffeescript@
+36 silly lockFile 62a8d146-coffeescript coffeescript@
+37 error 404 'coffeescript' is not in the npm registry.
+37 error 404 You should bug the author to publish it
+37 error 404
+37 error 404 Note that you can also install from a
+37 error 404 tarball, folder, or http url, or git url.
+38 error System Darwin 12.3.0
+39 error command "node" "/usr/local/bin/npm" "install" "coffeescript"
+40 error cwd /Users/jacksonwarren/projects/otweb
+41 error node -v v0.8.21
+42 error npm -v 1.2.11
+43 error code E404
+44 verbose exit [ 1, true ]
