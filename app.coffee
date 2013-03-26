@@ -26,23 +26,7 @@ app.get('/', (req, res) ->
   )
 )
 
-### ADVANCED UTILITIES: ###
-
-app.get('/issueasset', (req, res) ->
-  res.render('issueasset', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/newasset', (req, res) ->
-  res.render('newasset', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
+### Register Nym ###
 
 app.get('/register', (req, res) ->
   res.render('register', 
@@ -52,132 +36,15 @@ app.get('/register', (req, res) ->
   )
 )
 
-### THE USER WALLET: ###
-
-app.get('/addasset', (req, res) ->
-  res.render('addasset', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/wallet/:username', (req, res) ->
-  res.render('wallet', 
-    username: req.params.username,
-    nym: req.session.nym,
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/changepw', (req, res) ->
-  res.render('changepw', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/editacct', (req, res) ->
-  res.render('editacct', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/editasset', (req, res) ->
-  res.render('editasset', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/editnym', (req, res) ->
-  res.render('editnym', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/editserver', (req, res) ->
-  res.render('editserver', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/exportcert', (req, res) ->
-  res.render('exportcert', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/exportnym', (req, res) ->
-  res.render('exportnym', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/importcert', (req, res) ->
-  res.render('importcert', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/importnym', (req, res) ->
-  res.render('importnym', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/newnym', (req, res) ->
-  res.render('newnym', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
-app.get('/showpurse', (req, res) ->
-  res.render('showpurse', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
-  )
-)
-
 app.post('/register', (req, res) ->
   exec = require('child_process').exec
 
-  exec("opentxs newnym --args \"name #{req.body.username}\"" , (err, out, stderr) ->
-    req.session.nym = out
-    res.redirect("/wallet/#{req.body.username}")
+  exec("echo #{req.body.password} | opentxs newnym --args \"name #{req.body.username}\" && opentxs register --mynym #{req.body.username} --server vancouver" , (err, out, stderr) ->
+      res.redirect('/newacct')
   )
 )
 
-### ASSET ACCOUNTS: ###
-
-app.get('/deposit', (req, res) ->
-  res.render('deposit', 
-    js: (-> global.js),
-    css: (-> global.css),
-    layout:"depositlayout"
-  )
-)
+### Create Account ###
 
 app.get('/newacct', (req, res) ->
   res.render('newacct', 
@@ -187,13 +54,17 @@ app.get('/newacct', (req, res) ->
   )
 )
 
-app.get('/redeem', (req, res) ->
-  res.render('redeem', 
-    js: (-> global.js), 
-    css: (-> global.css),
-    layout:"layout"
+app.post('/newacct', (req, res) ->
+  exec = require('child_process').exec
+
+  exec("opentxs newacct --mynym #{req.body.mynym} --mypurse #{req.body.mypurse} --args \"label \"#{req.body.label}\" --server vancouver" , (err, out, stderr) ->
+    console.log(err)
+    console.log(out)
+    res.redirect('/transfer')
   )
 )
+
+### Transfer Funds ###
 
 app.get('/transfer', (req, res) ->
   res.render('transfer', 
@@ -203,24 +74,12 @@ app.get('/transfer', (req, res) ->
   )
 )
 
-### DEALING WITH OTHER USERS: ###
-
-
-### is this needed anymore?
-app.get('/issue/:amount', (req, res) ->
+app.post('/transfer', (req, res) ->
   exec = require('child_process').exec
 
-  exec("opentxs writecheque --myacct issuer --args \"memo \\\"Here's some OT-Bitcoins.\\\" amount #{req.params.amount} validfor 2592000\"", (err, out, stderr) ->
-    res.write(out)
-    res.end()
+  exec("opentxs transfer --myacct #{req.body.myacct} --hisacct #{req.body.hisacct} --args \"amount #{req.body.amount}\" --args \"memo \"#{req.body.amount}\"" , (err, out, stderr) ->
+    res.redirect('/register')
   )
 )
-
-app.use((err, req, res, next) ->
-  res.status(500)
-  console.log(err)
-  res.end()
-)
-###
 
 app.listen(config.server.port)

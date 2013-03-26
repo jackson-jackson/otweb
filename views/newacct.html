@@ -1,29 +1,37 @@
 <div class="container-fluid">
   <h2>Create New Asset Account</h2>
 
-<div class="form-horizontal">
+<form action="/newacct" method="post">
+  <div class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label">Choose Nym: </label>
+      <div class="controls">
+        <select id="mynym" name="mynym">
+          <option selected="selected">Vader</option>
+          <option>Chewbacca</option>
+          <option>RJD2</option>
+         </select>
+      </div>
+   </div>
+   
+   <div class="control-group">
+     <label class="control-label">Select Asset: </label>
+     <div class="controls">
+       <select id="mypurse" name="mypurse">
+         <option selected="selected">bitcoin</option>
+       </select>
+     </div>
+   </div>
 
-<div class="control-group">
-  <label class="control-label">Select Asset: </label>
-    <div class="controls">
-      <select id="showpurse" name="showpurse">
-        <option selected="selected">digiBitcoin</option>
-        <option>digiGold</option>
-        <option>digiSilver</option>
-      </select>
-    </div>
+    <div class="control-group">
+      <label class="control-label">New Account Label: </label>
+      <div class="controls">
+        <input name="label" size="30" type="text" />
+      </div>
+     </div>
   </div>
 
-<div class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label">New Account Label: </label>
-      <div class="controls">
-        <input name="newaccountlabel" size="30" type="text" />
-      </div>
-    </div>
-
-</div>
-
-<div>
-  <button class="btn btn-primary" id="new-wallet-continue">Continue</button>
-</div>
+  <div>
+    <input type="submit" value="Continue" />
+  </div>
+</form>
