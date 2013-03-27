@@ -26,7 +26,7 @@ app.get('/', (req, res) ->
   )
 )
 
-### Register Nym ###
+### Create New Nym and Register on Vanbtc.ca ###
 
 app.get('/register', (req, res) ->
   res.render('register', 
@@ -57,9 +57,7 @@ app.get('/newacct', (req, res) ->
 app.post('/newacct', (req, res) ->
   exec = require('child_process').exec
 
-  exec("opentxs newacct --mynym #{req.body.mynym} --mypurse #{req.body.mypurse} --args \"label \"#{req.body.label}\" --server vancouver" , (err, out, stderr) ->
-    console.log(err)
-    console.log(out)
+  exec("opentxs newacct --mynym #{req.body.mynym} --mypurse #{req.body.mypurse} --server vancouver --args \"label \"#{req.body.label}\"\"" , (err, out, stderr) ->
     res.redirect('/transfer')
   )
 )
@@ -77,7 +75,7 @@ app.get('/transfer', (req, res) ->
 app.post('/transfer', (req, res) ->
   exec = require('child_process').exec
 
-  exec("opentxs transfer --myacct #{req.body.myacct} --hisacct #{req.body.hisacct} --args \"amount #{req.body.amount}\" --args \"memo \"#{req.body.amount}\"" , (err, out, stderr) ->
+  exec("echo btc | opentxs transfer --myacct #{req.body.myacct} --hisacct #{req.body.hisacct} --args \"amount #{req.body.amount}\"" , (err, out, stderr) ->
     res.redirect('/register')
   )
 )
