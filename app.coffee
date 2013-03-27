@@ -57,7 +57,8 @@ app.get('/newacct', (req, res) ->
 app.post('/newacct', (req, res) ->
   exec = require('child_process').exec
 
-  exec("opentxs newacct --mynym #{req.body.mynym} --mypurse #{req.body.mypurse} --server vancouver --args \"label \"#{req.body.label}\"\"" , (err, out, stderr) ->
+###  exec("opentxs newacct --mynym #{req.body.mynym} --mypurse #{req.body.mypurse} --server vancouver" , (err, out, stderr) -> ###
+    exec("opentxs newacct --mynym #{req.body.mynym} --mypurse #{req.body.mypurse} --server vancouver --args \"label \\\"#{req.body.label}\\\"\"" , (err, out, stderr) ->
     res.redirect('/transfer')
   )
 )
