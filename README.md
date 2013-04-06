@@ -1,6 +1,6 @@
-OT Web Interface
+<h3>OT Web Interface</h3>
 
-To run, clone the repo and run 
+To run, clone the repo and run
 
 coffee app.coffee 
 
