@@ -36,6 +36,15 @@ app.get('/register', (req, res) ->
   )
 )
 
+app.get('/shownyms', (req, res) ->
+  exec = require('child_process').exec
+
+  exec("opentxs shownyms", (err, out, stderr) ->
+    res.write(out)
+    res.end()
+  )
+)
+
 app.post('/register', (req, res) ->
   exec = require('child_process').exec
 
