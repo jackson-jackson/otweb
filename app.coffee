@@ -40,7 +40,14 @@ app.get('/shownyms', (req, res) ->
   exec = require('child_process').exec
 
   exec("opentxs shownyms | sed '1,3d'", (err, out, stderr) ->
-    res.write(out)
+    lines = out.split('\n')
+    lines.pop()
+    results = lines.map (line) ->
+      regex = /(.*) --- (.*)/
+      match = regex.exec(line)
+      if match
+        {"nym": match[1], "label": match[2]}
+    res.write(JSON.stringify(results))
     res.end()
   )
 )

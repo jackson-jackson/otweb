@@ -27,4 +27,13 @@ $(->
     $('#tabs > div').hide()
     $('#import-export').show()
   )
+
+  if $('#mynym').length
+    $.getJSON('/shownyms', (data) ->
+      $('#mynym').html('')
+      $('#mynym').removeAttr('disabled')
+      $.each(data, ->
+        $('#mynym').append("<option value=\"#{this.nym}\">#{this.label}</option>")
+      )
+    )
 )
