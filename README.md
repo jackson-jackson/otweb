@@ -8,7 +8,7 @@ then navigate on your browser to http://localhost:3000/
 
 Screenshots:
 
-<a href="http://imgur.com/CgyQvaf"><img src="http://i.imgur.com/CgyQvaf.png" title="Hosted by imgur.com"/></a><br>
-<a href="http://imgur.com/Cv16O8t"><img src="http://i.imgur.com/Cv16O8t.png" title="Hosted by imgur.com"/></a><br>
-<a href="http://imgur.com/lDx945k"><img src="http://i.imgur.com/lDx945k.png" title="Hosted by imgur.com"/></a><br>
-<a href="http://imgur.com/MoLxPdX"><img src="http://i.imgur.com/MoLxPdX.png" title="Hosted by imgur.com"/></a><br>
+<a href="http://imgur.com/nVJwBOX"><img src="http://i.imgur.com/nVJwBOX.png" title="Hosted by imgur.com"/></a><br>
+<a href="http://imgur.com/IUGr6l0"><img src="http://i.imgur.com/IUGr6l0.png" title="Hosted by imgur.com"/></a><br>
+<a href="http://imgur.com/80tz72b"><img src="http://i.imgur.com/80tz72b.png" title="Hosted by imgur.com"/></a><br>
+<a href="http://imgur.com/Ij6vLy2"><img src="http://i.imgur.com/Ij6vLy2.png" title="Hosted by imgur.com"/></a><br>
