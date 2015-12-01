@@ -1,4 +1,3 @@
-config = require('./config')
 express = require('express')
 path = require('path')
 engines = require('consolidate')
@@ -114,4 +113,4 @@ app.post('/transfer', (req, res) ->
   )
 )
 
-app.listen(config.server.port)
+app.listen(3000)
