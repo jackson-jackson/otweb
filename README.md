@@ -1,8 +1,10 @@
-<h3>OT Web Interface</h3>
+<h3>A Basic Open Transactions Web Interface</h3>
 
-To run, clone the repo and, from the otweb directory, run
+otweb is built on Open Transactions, and you need to install opentsx before otweb will run. Please see the opentx installation documents here: https://github.com/Open-Transactions/opentxs/tree/develop/docs
 
-coffee app.coffee 
+To run, clone the repo and from your otweb directory run
+
+coffee app.coffee
 
 then navigate on your browser to http://localhost:3000/
 
