@@ -36,4 +36,13 @@ $(->
         $('#mynym').append("<option value=\"#{this.nym}\">#{this.label}</option>")
       )
     )
+
+  if $('#mypurse').length
+    $.getJSON('/showassets', (data) ->
+      $('#mypurse').html('')
+      $('#mypurse').removeAttr('disabled')
+      $.each(data, ->
+        $('#mypurse').append("<option value=\"#{this.asset}\">#{this.name}</option>")
+      )
+    )
 )
